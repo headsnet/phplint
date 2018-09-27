@@ -26,6 +26,8 @@ FROM php:alpine
 
 COPY --from=builder /usr/local/bin/parallel-lint /usr/local/bin/parallel-lint
 
-VOLUME [ "/app" ]
+VOLUME /app
+WORKDIR /app
+
 ENTRYPOINT [ "/usr/local/bin/parallel-lint"]
 CMD [ "--version" ]
